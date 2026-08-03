@@ -26,22 +26,22 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"
         }`}
     >
       <div className="mx-auto max-w-7xl px-5">
         <div
-          className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${scrolled
+          className={`flex items-center justify-between rounded-full px-5 py-2 transition-all duration-500 ${scrolled
             ? "glass-strong shadow-[0_10px_60px_-20px_rgba(0,0,0,0.8)]"
             : "border border-transparent"
             }`}
         >
-          {/* Logo — orbit image only */}
+          {/* Logo — orbit only */}
           <Link to="/" className="flex items-center shrink-0">
             <img
               src={orbitLogo}
               alt="SpaceGrey"
-              className="h-9 w-9 invert opacity-90"
+              className="h-16 w-16 invert opacity-90"
             />
           </Link>
 

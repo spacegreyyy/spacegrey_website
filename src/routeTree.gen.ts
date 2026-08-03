@@ -18,12 +18,14 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioBharatFintechRouteImport } from './routes/portfolio.bharat-fintech'
 import { Route as PortfolioFinnFintechRouteImport } from './routes/portfolio.finn-fintech'
 import { Route as PortfolioRuralStayIndiaRouteImport } from './routes/portfolio.rural-stay-india'
 import { Route as PortfolioSageMediaRouteImport } from './routes/portfolio.sage-media'
 import { Route as PortfolioSaieshaEVehiclesRouteImport } from './routes/portfolio.saiesha-e-vehicles'
 import { Route as PortfolioVaibhavOxygensRouteImport } from './routes/portfolio.vaibhav-oxygens'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesArtificialIntelligenceRouteImport } from './routes/services.artificial-intelligence'
 import { Route as ServicesAutomationRouteImport } from './routes/services.automation'
 import { Route as ServicesCloudDevopsRouteImport } from './routes/services.cloud-devops'
@@ -34,11 +36,11 @@ import { Route as ServicesProductDevelopmentRouteImport } from './routes/service
 import { Route as ServicesSoftwareDevelopmentRouteImport } from './routes/services.software-development'
 import { Route as ServicesTechnologyConsultingRouteImport } from './routes/services.technology-consulting'
 import { Route as ServicesUiUxDesignRouteImport } from './routes/services.ui-ux-design'
+import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as SolutionsAiSolutionsRouteImport } from './routes/solutions.ai-solutions'
 import { Route as SolutionsAnalyticsSolutionsRouteImport } from './routes/solutions.analytics-solutions'
 import { Route as SolutionsAutomationSolutionsRouteImport } from './routes/solutions.automation-solutions'
 import { Route as SolutionsBusinessIntelligenceRouteImport } from './routes/solutions.business-intelligence'
-import { Route as SolutionsCloudSolutionsRouteImport } from './routes/solutions.cloud-solutions'
 import { Route as SolutionsCustomSoftwareRouteImport } from './routes/solutions.custom-software'
 import { Route as SolutionsDigitalTransformationRouteImport } from './routes/solutions.digital-transformation'
 import { Route as SolutionsEnterpriseSolutionsRouteImport } from './routes/solutions.enterprise-solutions'
@@ -90,6 +92,11 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortfolioRoute,
+} as any)
 const PortfolioBharatFintechRoute = PortfolioBharatFintechRouteImport.update({
   id: '/bharat-fintech',
   path: '/bharat-fintech',
@@ -120,6 +127,11 @@ const PortfolioVaibhavOxygensRoute = PortfolioVaibhavOxygensRouteImport.update({
   id: '/vaibhav-oxygens',
   path: '/vaibhav-oxygens',
   getParentRoute: () => PortfolioRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesArtificialIntelligenceRoute =
   ServicesArtificialIntelligenceRouteImport.update({
@@ -175,6 +187,11 @@ const ServicesUiUxDesignRoute = ServicesUiUxDesignRouteImport.update({
   path: '/ui-ux-design',
   getParentRoute: () => ServicesRoute,
 } as any)
+const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SolutionsRoute,
+} as any)
 const SolutionsAiSolutionsRoute = SolutionsAiSolutionsRouteImport.update({
   id: '/ai-solutions',
   path: '/ai-solutions',
@@ -198,11 +215,6 @@ const SolutionsBusinessIntelligenceRoute =
     path: '/business-intelligence',
     getParentRoute: () => SolutionsRoute,
   } as any)
-const SolutionsCloudSolutionsRoute = SolutionsCloudSolutionsRouteImport.update({
-  id: '/cloud-solutions',
-  path: '/cloud-solutions',
-  getParentRoute: () => SolutionsRoute,
-} as any)
 const SolutionsCustomSoftwareRoute = SolutionsCustomSoftwareRouteImport.update({
   id: '/custom-software',
   path: '/custom-software',
@@ -262,12 +274,14 @@ export interface FileRoutesByFullPath {
   '/solutions/analytics-solutions': typeof SolutionsAnalyticsSolutionsRoute
   '/solutions/automation-solutions': typeof SolutionsAutomationSolutionsRoute
   '/solutions/business-intelligence': typeof SolutionsBusinessIntelligenceRoute
-  '/solutions/cloud-solutions': typeof SolutionsCloudSolutionsRoute
   '/solutions/custom-software': typeof SolutionsCustomSoftwareRoute
   '/solutions/digital-transformation': typeof SolutionsDigitalTransformationRoute
   '/solutions/enterprise-solutions': typeof SolutionsEnterpriseSolutionsRoute
   '/solutions/saas-solutions': typeof SolutionsSaasSolutionsRoute
   '/solutions/startup-solutions': typeof SolutionsStartupSolutionsRoute
+  '/portfolio/': typeof PortfolioIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -275,10 +289,7 @@ export interface FileRoutesByTo {
   '/book-a-call': typeof BookACallRoute
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
-  '/services': typeof ServicesRouteWithChildren
-  '/solutions': typeof SolutionsRouteWithChildren
   '/portfolio/bharat-fintech': typeof PortfolioBharatFintechRoute
   '/portfolio/finn-fintech': typeof PortfolioFinnFintechRoute
   '/portfolio/rural-stay-india': typeof PortfolioRuralStayIndiaRoute
@@ -299,12 +310,14 @@ export interface FileRoutesByTo {
   '/solutions/analytics-solutions': typeof SolutionsAnalyticsSolutionsRoute
   '/solutions/automation-solutions': typeof SolutionsAutomationSolutionsRoute
   '/solutions/business-intelligence': typeof SolutionsBusinessIntelligenceRoute
-  '/solutions/cloud-solutions': typeof SolutionsCloudSolutionsRoute
   '/solutions/custom-software': typeof SolutionsCustomSoftwareRoute
   '/solutions/digital-transformation': typeof SolutionsDigitalTransformationRoute
   '/solutions/enterprise-solutions': typeof SolutionsEnterpriseSolutionsRoute
   '/solutions/saas-solutions': typeof SolutionsSaasSolutionsRoute
   '/solutions/startup-solutions': typeof SolutionsStartupSolutionsRoute
+  '/portfolio': typeof PortfolioIndexRoute
+  '/services': typeof ServicesIndexRoute
+  '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -337,12 +350,14 @@ export interface FileRoutesById {
   '/solutions/analytics-solutions': typeof SolutionsAnalyticsSolutionsRoute
   '/solutions/automation-solutions': typeof SolutionsAutomationSolutionsRoute
   '/solutions/business-intelligence': typeof SolutionsBusinessIntelligenceRoute
-  '/solutions/cloud-solutions': typeof SolutionsCloudSolutionsRoute
   '/solutions/custom-software': typeof SolutionsCustomSoftwareRoute
   '/solutions/digital-transformation': typeof SolutionsDigitalTransformationRoute
   '/solutions/enterprise-solutions': typeof SolutionsEnterpriseSolutionsRoute
   '/solutions/saas-solutions': typeof SolutionsSaasSolutionsRoute
   '/solutions/startup-solutions': typeof SolutionsStartupSolutionsRoute
+  '/portfolio/': typeof PortfolioIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -376,12 +391,14 @@ export interface FileRouteTypes {
     | '/solutions/analytics-solutions'
     | '/solutions/automation-solutions'
     | '/solutions/business-intelligence'
-    | '/solutions/cloud-solutions'
     | '/solutions/custom-software'
     | '/solutions/digital-transformation'
     | '/solutions/enterprise-solutions'
     | '/solutions/saas-solutions'
     | '/solutions/startup-solutions'
+    | '/portfolio/'
+    | '/services/'
+    | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -389,10 +406,7 @@ export interface FileRouteTypes {
     | '/book-a-call'
     | '/contact'
     | '/industries'
-    | '/portfolio'
     | '/pricing'
-    | '/services'
-    | '/solutions'
     | '/portfolio/bharat-fintech'
     | '/portfolio/finn-fintech'
     | '/portfolio/rural-stay-india'
@@ -413,12 +427,14 @@ export interface FileRouteTypes {
     | '/solutions/analytics-solutions'
     | '/solutions/automation-solutions'
     | '/solutions/business-intelligence'
-    | '/solutions/cloud-solutions'
     | '/solutions/custom-software'
     | '/solutions/digital-transformation'
     | '/solutions/enterprise-solutions'
     | '/solutions/saas-solutions'
     | '/solutions/startup-solutions'
+    | '/portfolio'
+    | '/services'
+    | '/solutions'
   id:
     | '__root__'
     | '/'
@@ -450,12 +466,14 @@ export interface FileRouteTypes {
     | '/solutions/analytics-solutions'
     | '/solutions/automation-solutions'
     | '/solutions/business-intelligence'
-    | '/solutions/cloud-solutions'
     | '/solutions/custom-software'
     | '/solutions/digital-transformation'
     | '/solutions/enterprise-solutions'
     | '/solutions/saas-solutions'
     | '/solutions/startup-solutions'
+    | '/portfolio/'
+    | '/services/'
+    | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -535,6 +553,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/': {
+      id: '/portfolio/'
+      path: '/'
+      fullPath: '/portfolio/'
+      preLoaderRoute: typeof PortfolioIndexRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
     '/portfolio/bharat-fintech': {
       id: '/portfolio/bharat-fintech'
       path: '/bharat-fintech'
@@ -576,6 +601,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/portfolio/vaibhav-oxygens'
       preLoaderRoute: typeof PortfolioVaibhavOxygensRouteImport
       parentRoute: typeof PortfolioRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/artificial-intelligence': {
       id: '/services/artificial-intelligence'
@@ -647,6 +679,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesUiUxDesignRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/solutions/': {
+      id: '/solutions/'
+      path: '/'
+      fullPath: '/solutions/'
+      preLoaderRoute: typeof SolutionsIndexRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
     '/solutions/ai-solutions': {
       id: '/solutions/ai-solutions'
       path: '/ai-solutions'
@@ -673,13 +712,6 @@ declare module '@tanstack/react-router' {
       path: '/business-intelligence'
       fullPath: '/solutions/business-intelligence'
       preLoaderRoute: typeof SolutionsBusinessIntelligenceRouteImport
-      parentRoute: typeof SolutionsRoute
-    }
-    '/solutions/cloud-solutions': {
-      id: '/solutions/cloud-solutions'
-      path: '/cloud-solutions'
-      fullPath: '/solutions/cloud-solutions'
-      preLoaderRoute: typeof SolutionsCloudSolutionsRouteImport
       parentRoute: typeof SolutionsRoute
     }
     '/solutions/custom-software': {
@@ -727,6 +759,7 @@ interface PortfolioRouteChildren {
   PortfolioSageMediaRoute: typeof PortfolioSageMediaRoute
   PortfolioSaieshaEVehiclesRoute: typeof PortfolioSaieshaEVehiclesRoute
   PortfolioVaibhavOxygensRoute: typeof PortfolioVaibhavOxygensRoute
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
 }
 
 const PortfolioRouteChildren: PortfolioRouteChildren = {
@@ -736,6 +769,7 @@ const PortfolioRouteChildren: PortfolioRouteChildren = {
   PortfolioSageMediaRoute: PortfolioSageMediaRoute,
   PortfolioSaieshaEVehiclesRoute: PortfolioSaieshaEVehiclesRoute,
   PortfolioVaibhavOxygensRoute: PortfolioVaibhavOxygensRoute,
+  PortfolioIndexRoute: PortfolioIndexRoute,
 }
 
 const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
@@ -753,6 +787,7 @@ interface ServicesRouteChildren {
   ServicesSoftwareDevelopmentRoute: typeof ServicesSoftwareDevelopmentRoute
   ServicesTechnologyConsultingRoute: typeof ServicesTechnologyConsultingRoute
   ServicesUiUxDesignRoute: typeof ServicesUiUxDesignRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
@@ -766,6 +801,7 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesSoftwareDevelopmentRoute: ServicesSoftwareDevelopmentRoute,
   ServicesTechnologyConsultingRoute: ServicesTechnologyConsultingRoute,
   ServicesUiUxDesignRoute: ServicesUiUxDesignRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
@@ -777,12 +813,12 @@ interface SolutionsRouteChildren {
   SolutionsAnalyticsSolutionsRoute: typeof SolutionsAnalyticsSolutionsRoute
   SolutionsAutomationSolutionsRoute: typeof SolutionsAutomationSolutionsRoute
   SolutionsBusinessIntelligenceRoute: typeof SolutionsBusinessIntelligenceRoute
-  SolutionsCloudSolutionsRoute: typeof SolutionsCloudSolutionsRoute
   SolutionsCustomSoftwareRoute: typeof SolutionsCustomSoftwareRoute
   SolutionsDigitalTransformationRoute: typeof SolutionsDigitalTransformationRoute
   SolutionsEnterpriseSolutionsRoute: typeof SolutionsEnterpriseSolutionsRoute
   SolutionsSaasSolutionsRoute: typeof SolutionsSaasSolutionsRoute
   SolutionsStartupSolutionsRoute: typeof SolutionsStartupSolutionsRoute
+  SolutionsIndexRoute: typeof SolutionsIndexRoute
 }
 
 const SolutionsRouteChildren: SolutionsRouteChildren = {
@@ -790,12 +826,12 @@ const SolutionsRouteChildren: SolutionsRouteChildren = {
   SolutionsAnalyticsSolutionsRoute: SolutionsAnalyticsSolutionsRoute,
   SolutionsAutomationSolutionsRoute: SolutionsAutomationSolutionsRoute,
   SolutionsBusinessIntelligenceRoute: SolutionsBusinessIntelligenceRoute,
-  SolutionsCloudSolutionsRoute: SolutionsCloudSolutionsRoute,
   SolutionsCustomSoftwareRoute: SolutionsCustomSoftwareRoute,
   SolutionsDigitalTransformationRoute: SolutionsDigitalTransformationRoute,
   SolutionsEnterpriseSolutionsRoute: SolutionsEnterpriseSolutionsRoute,
   SolutionsSaasSolutionsRoute: SolutionsSaasSolutionsRoute,
   SolutionsStartupSolutionsRoute: SolutionsStartupSolutionsRoute,
+  SolutionsIndexRoute: SolutionsIndexRoute,
 }
 
 const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
