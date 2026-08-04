@@ -40,7 +40,7 @@ function AboutPage() {
       />
 
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-7xl grid md:grid-cols-4 gap-px bg-white/[0.06] rounded-3xl overflow-hidden border border-white/10">
+        <div className="mx-auto max-w-7xl grid md:grid-cols-4 gap-px liquid-glass rounded-3xl overflow-hidden">
           {[
             [6, "+", "Projects Delivered"],
             [5, "+", "Industries Served"],
@@ -48,7 +48,7 @@ function AboutPage() {
             [2025, "", "Est."],
           ].map(([n, s, l], i) => (
             <Reveal key={l as string} delay={i * 60}>
-              <div className="bg-black/70 p-10 text-center h-full">
+              <div className="p-10 text-center h-full">
                 <div className="text-4xl md:text-5xl font-semibold tracking-[-0.04em] text-gradient">
                   <Counter to={n as number} suffix={s as string} />
                 </div>
@@ -62,7 +62,7 @@ function AboutPage() {
       <section className="px-6 py-24">
         <div className="mx-auto max-w-7xl grid md:grid-cols-2 gap-16 items-start">
           <Reveal>
-            <div className="relative aspect-square rounded-[2rem] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent">
+            <div className="relative aspect-square rounded-[2rem] liquid-glass overflow-hidden">
               <img src={orbit} alt="" className="absolute inset-0 m-auto w-3/4 invert opacity-90 animate-orbit-slow" />
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent,black_85%)]" />
             </div>
@@ -95,7 +95,7 @@ function AboutPage() {
           <div className="mt-16 grid md:grid-cols-4 gap-4">
             {VALUES.map(([t, d], i) => (
               <Reveal key={t} delay={i * 80}>
-                <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 h-full">
+                <div className="rounded-3xl liquid-glass p-8 h-full">
                   <div className="text-2xl font-semibold text-gradient">{t}</div>
                   <div className="mt-3 text-sm text-white/55 leading-relaxed">{d}</div>
                 </div>
@@ -114,7 +114,7 @@ function AboutPage() {
           </Reveal>
           <div className="mt-16 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <Reveal delay={80}>
-              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 hover:bg-white/[0.04] hover:border-white/20 transition">
+              <div className="rounded-3xl liquid-glass p-10 hover:bg-white/[0.04] transition">
                 <div className="h-16 w-16 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/15 flex items-center justify-center text-2xl font-semibold text-gradient">
                   JC
                 </div>
@@ -127,7 +127,7 @@ function AboutPage() {
               </div>
             </Reveal>
             <Reveal delay={160}>
-              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 hover:bg-white/[0.04] hover:border-white/20 transition">
+              <div className="rounded-3xl liquid-glass p-10 hover:bg-white/[0.04] transition">
                 <div className="h-16 w-16 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/15 flex items-center justify-center text-2xl font-semibold text-gradient">
                   UV
                 </div>

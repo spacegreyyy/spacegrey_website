@@ -16,7 +16,7 @@ export function SpaceBackground({ withOrbits = false }: { withOrbits?: boolean }
   );
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-[2] overflow-hidden">
       {/* Base gradient glow */}
       <div className="absolute -top-[20%] left-1/2 h-[900px] w-[900px] -translate-x-1/2 rounded-full bg-white/[0.04] blur-[140px] animate-glow-pulse" />
       <div className="absolute bottom-[-30%] right-[-10%] h-[700px] w-[700px] rounded-full bg-white/[0.03] blur-[160px]" />

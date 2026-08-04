@@ -72,7 +72,7 @@ function TechConsultingPage() {
             <div className="grid sm:grid-cols-2 gap-4">
               {PROJECTS.map((p, i) => (
                 <Reveal key={p.title} delay={i * 60}>
-                  <div className="glass rounded-3xl p-7 border border-white/[0.08] h-full">
+                  <div className="liquid-glass rounded-3xl p-7 liquid-glass h-full">
                     <div className="text-base font-semibold mb-3">
                       {p.title}
                     </div>

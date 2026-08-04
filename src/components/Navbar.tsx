@@ -32,7 +32,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-5">
         <div
           className={`flex items-center justify-between rounded-full px-5 py-2 transition-all duration-500 ${scrolled
-            ? "glass-strong shadow-[0_10px_60px_-20px_rgba(0,0,0,0.8)]"
+            ? "liquid-glass-strong shadow-[0_10px_60px_-20px_rgba(0,0,0,0.8)]"
             : "border border-transparent"
             }`}
         >
@@ -78,7 +78,7 @@ export function Navbar() {
         </div>
 
         {open && (
-          <div className="lg:hidden mt-2 glass-strong rounded-3xl p-4 animate-reveal">
+          <div className="lg:hidden mt-2 liquid-glass-strong rounded-3xl p-4 animate-reveal">
             <div className="grid grid-cols-2 gap-1">
               {NAV.map((item) => (
                 <Link

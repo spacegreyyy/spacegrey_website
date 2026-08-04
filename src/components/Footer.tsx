@@ -57,7 +57,7 @@ export function Footer() {
     <footer className="relative z-10 border-t border-white/[0.06] mt-32">
       <div className="mx-auto max-w-7xl px-6 py-20">
         {/* Newsletter */}
-        <div className="glass rounded-3xl p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20">
+        <div className="liquid-glass rounded-3xl p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20">
           <div>
             <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-gradient max-w-lg">
               Signals from deep space.

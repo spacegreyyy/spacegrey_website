@@ -96,7 +96,7 @@ function Page() {
               ].map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/60"
+                  className="rounded-full liquid-glass px-3 py-1 text-xs text-white/60"
                 >
                   {tag}
                 </span>
@@ -123,7 +123,7 @@ function Page() {
             ["Year", "2025"],
           ].map(([k, v]) => (
             <Reveal key={k}>
-              <div className="glass rounded-2xl p-5">
+              <div className="liquid-glass rounded-2xl p-5">
                 <div className="text-xs uppercase tracking-[0.2em] text-white/40">
                   {k}
                 </div>
@@ -168,7 +168,7 @@ function Page() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {PHASES.map((p, i) => (
                 <Reveal key={p.n} delay={i * 60}>
-                  <div className="glass rounded-3xl p-7 border border-white/[0.08] h-full">
+                  <div className="liquid-glass rounded-3xl p-7 liquid-glass h-full">
                     <div className="flex items-center justify-between mb-5">
                       <span className="text-3xl font-bold text-gradient opacity-40">
                         {p.n}
@@ -202,7 +202,7 @@ function Page() {
                 {TECH.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-white/15 bg-white/[0.04] px-5 py-2.5 text-sm text-white/80 font-medium"
+                    className="rounded-full liquid-glass px-5 py-2.5 text-sm text-white/80 font-medium"
                   >
                     {t}
                   </span>
@@ -224,7 +224,7 @@ function Page() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {OUTCOMES.map((o, i) => (
                 <Reveal key={o.label} delay={i * 60}>
-                  <div className="glass rounded-3xl p-8 text-center border border-white/[0.08]">
+                  <div className="liquid-glass rounded-3xl p-8 text-center liquid-glass">
                     <div className="text-2xl font-bold text-gradient mb-3">
                       {o.n}
                     </div>
@@ -239,7 +239,7 @@ function Page() {
 
           {/* Testimonial */}
           <Reveal>
-            <div className="glass rounded-3xl p-10 border border-white/10">
+            <div className="liquid-glass rounded-3xl p-10 border border-white/10">
               <p className="text-white/80 text-xl leading-relaxed italic mb-8">
                 "They understood our hospitality vision immediately. The website
                 is beautiful and the tech support ongoing has been excellent."
@@ -262,7 +262,7 @@ function Page() {
 
       <section className="px-6 pb-24">
         <Reveal>
-          <div className="mx-auto max-w-5xl glass rounded-3xl p-12 text-center border border-white/10">
+          <div className="mx-auto max-w-5xl liquid-glass rounded-3xl p-12 text-center border border-white/10">
             <h3 className="text-3xl font-semibold text-gradient mb-4">
               Want results like this?
             </h3>

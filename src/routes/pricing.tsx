@@ -63,7 +63,7 @@ function PricingPage() {
       <section className="relative pt-40 pb-32 px-6 min-h-[60vh] flex items-center justify-center">
         <div className="text-center max-w-xl mx-auto">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60 mb-8">
+            <div className="inline-flex items-center gap-2 rounded-full liquid-glass px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60 mb-8">
               Pricing
             </div>
             <h1 className="text-5xl md:text-7xl font-semibold tracking-[-0.04em] text-gradient leading-[0.95] mb-6">

@@ -72,7 +72,7 @@ function PortfolioPage() {
             <Reveal key={c.slug} delay={i * 60}>
               <Link
                 to={`/portfolio/${c.slug}` as any}
-                className="group flex flex-col rounded-3xl border border-white/10 bg-white/[0.02] p-8 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 hover:-translate-y-1 h-full"
+                className="group flex flex-col rounded-3xl liquid-glass p-8 hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 h-full"
               >
                 <div className="text-[11px] uppercase tracking-[0.25em] text-white/40 mb-4">{c.tag}</div>
                 <div className="flex-1">

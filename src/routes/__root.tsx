@@ -57,7 +57,7 @@ function NotFoundComponent() {
           </svg>
         </div>
 
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60 mb-6">
+        <div className="inline-flex items-center gap-2 rounded-full liquid-glass px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60 mb-6">
           Error 404
         </div>
 

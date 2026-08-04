@@ -78,8 +78,8 @@ function BookACallPage() {
                 <div className="mx-auto max-w-5xl grid md:grid-cols-3 gap-4">
                     {MEETING_TYPES.map((m, i) => (
                         <Reveal key={m.title} delay={i * 80}>
-                            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 hover:bg-white/[0.05] hover:border-white/20 transition h-full flex flex-col">
-                                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/5 border border-white/10 mb-6">
+                            <div className="rounded-3xl liquid-glass p-8 hover:bg-white/[0.04] transition h-full flex flex-col">
+                                <div className="grid h-12 w-12 place-items-center rounded-2xl liquid-glass mb-6">
                                     <m.icon className="h-5 w-5" />
                                 </div>
                                 <div className="text-xl font-semibold mb-1">{m.title}</div>
@@ -110,7 +110,7 @@ function BookACallPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                         {TEAM.map((person, i) => (
                             <Reveal key={person.name} delay={i * 100}>
-                                <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 hover:border-white/20 transition">
+                                <div className="rounded-3xl liquid-glass p-8 transition">
                                     <div className="flex items-center gap-4 mb-5">
                                         <div className="h-14 w-14 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/15 flex items-center justify-center text-lg font-semibold text-gradient">
                                             {person.initials}
@@ -140,7 +140,7 @@ function BookACallPage() {
             <section className="px-6 pb-24">
                 <div className="mx-auto max-w-3xl">
                     <Reveal>
-                        <div className="glass rounded-3xl p-10 text-center">
+                        <div className="liquid-glass rounded-3xl p-10 text-center">
                             <div className="text-white/50 text-sm mb-3">Prefer email?</div>
                             <a href="mailto:spacegreyyy522@gmail.com" className="text-xl font-semibold hover:text-white/70 transition">
                                 spacegreyyy522@gmail.com

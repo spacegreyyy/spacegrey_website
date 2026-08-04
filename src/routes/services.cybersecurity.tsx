@@ -25,7 +25,7 @@ function CybersecurityPage() {
                         <h2 className="text-2xl font-semibold text-gradient mb-6">What we deliver</h2>
                         <div className="grid sm:grid-cols-2 gap-4">
                             {["Security Audits & Code Reviews", "Penetration Testing (Web & API)", "OWASP Top 10 Assessment", "Authentication & Authorisation Review", "Data Encryption Implementation", "Secure SDLC Implementation", "Infrastructure Security Review", "VAPT Reports", "Compliance Readiness (ISO 27001, SOC 2)", "Security Training for Dev Teams"].map(item => (
-                                <div key={item} className="flex items-start gap-3 glass rounded-2xl p-4"><CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0 text-white/40" /><span className="text-sm text-white/75">{item}</span></div>
+                                <div key={item} className="flex items-start gap-3 liquid-glass rounded-2xl p-4"><CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0 text-white/40" /><span className="text-sm text-white/75">{item}</span></div>
                             ))}
                         </div>
                     </Reveal>

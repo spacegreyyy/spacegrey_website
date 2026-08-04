@@ -40,10 +40,10 @@ function ServicesPage() {
             <Reveal key={s.title} delay={i * 40}>
               <Link
                 to={`/services/${s.slug}` as any}
-                className="group relative rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-10 hover:border-white/25 hover:bg-white/[0.05] transition-all duration-300 block hover:-translate-y-1"
+                className="group relative rounded-[2rem] liquid-glass p-10 hover:bg-white/[0.05] transition-all duration-300 block hover:-translate-y-1"
               >
                 <div className="flex items-start justify-between">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/5 border border-white/10">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl liquid-glass">
                     <s.icon className="h-5 w-5" />
                   </div>
                   <ArrowUpRight className="h-4 w-4 text-white/40 group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1 transition" />
@@ -52,7 +52,7 @@ function ServicesPage() {
                 <p className="mt-3 text-white/55 leading-relaxed">{s.desc}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {s.items.map((it) => (
-                    <span key={it} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-white/70">{it}</span>
+                    <span key={it} className="rounded-full liquid-glass px-3 py-1 text-xs text-white/70">{it}</span>
                   ))}
                 </div>
               </Link>

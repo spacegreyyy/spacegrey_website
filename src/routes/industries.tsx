@@ -33,8 +33,8 @@ function IndustriesPage() {
         <div className="mx-auto max-w-7xl grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {I.map(([name, Icon], i) => (
             <Reveal key={name} delay={i * 40}>
-              <div className="group rounded-3xl border border-white/10 bg-white/[0.02] p-8 hover:bg-white/[0.05] hover:border-white/25 transition aspect-[4/5] flex flex-col justify-between">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/5 border border-white/10">
+              <div className="group rounded-3xl liquid-glass p-8 hover:bg-white/[0.04] transition aspect-[4/5] flex flex-col justify-between">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl liquid-glass">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>

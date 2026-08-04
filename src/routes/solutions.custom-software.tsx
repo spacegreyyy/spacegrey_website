@@ -55,7 +55,7 @@ function Page() {
               <ArrowLeft className="h-4 w-4" /> All Solutions
             </Link>
             <div className="flex flex-wrap gap-2 mb-6">
-              <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/60">
+              <span className="rounded-full liquid-glass px-3 py-1 text-xs text-white/60">
                 Custom Software
               </span>
             </div>
@@ -102,7 +102,7 @@ function Page() {
             <div className="grid sm:grid-cols-2 gap-4">
               {INCLUDED.map((item, i) => (
                 <Reveal key={item} delay={i * 50}>
-                  <div className="glass rounded-2xl p-5 border border-white/[0.08]">
+                  <div className="liquid-glass rounded-2xl p-5 liquid-glass">
                     <p className="text-sm text-white/75 leading-relaxed">
                       {item}
                     </p>
@@ -140,7 +140,7 @@ function Page() {
             <div className="grid sm:grid-cols-2 gap-4">
               {STEPS.map((s, i) => (
                 <Reveal key={s.n} delay={i * 60}>
-                  <div className="glass rounded-3xl p-7 border border-white/[0.08] h-full">
+                  <div className="liquid-glass rounded-3xl p-7 liquid-glass h-full">
                     <span className="text-3xl font-bold text-gradient opacity-40">
                       {s.n}
                     </span>
@@ -157,7 +157,7 @@ function Page() {
           </div>
 
           <Reveal>
-            <div className="glass rounded-3xl p-12 text-center border border-white/10">
+            <div className="liquid-glass rounded-3xl p-12 text-center border border-white/10">
               <h3 className="text-3xl font-semibold text-gradient mb-4">
                 Talk to us about Custom Software
               </h3>

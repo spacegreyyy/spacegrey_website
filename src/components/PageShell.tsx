@@ -5,10 +5,22 @@ import { SpaceBackground } from "./SpaceBackground";
 import { Reveal } from "./Reveal";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import heroBg from "@/assets/hero-bg.mp4";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-clip">
+      {/* Video background — fixed so it persists across all page sections */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="fixed inset-0 w-full h-full object-cover z-0"
+        src={heroBg}
+      />
+      {/* Dark overlay for legibility */}
+      <div className="fixed inset-0 z-[1] bg-black/30" />
       <SpaceBackground />
       <Navbar />
       <main className="relative z-10">{children}</main>
@@ -30,7 +42,7 @@ export function PageHero({
     <section className="relative pt-40 pb-24 px-6">
       <div className="mx-auto max-w-6xl text-center">
         <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60">
+          <div className="inline-flex items-center gap-2 rounded-full liquid-glass px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60">
             <span className="h-1 w-1 rounded-full bg-white/60" />
             {eyebrow}
           </div>
@@ -54,7 +66,7 @@ export function CTAStrip() {
   return (
     <section className="relative z-10 px-6 py-24">
       <Reveal>
-        <div className="mx-auto max-w-6xl glass rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden">
+        <div className="mx-auto max-w-6xl liquid-glass-strong rounded-[2.5rem] p-12 md:p-20 relative overflow-hidden">
           <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-white/[0.06] blur-[120px]" />
           <div className="relative text-center">
             <h2 className="text-4xl md:text-6xl font-semibold tracking-[-0.03em] text-gradient">

@@ -27,7 +27,7 @@ function ContactPage() {
       <section className="px-6 pb-24">
         <div className="mx-auto max-w-6xl grid md:grid-cols-5 gap-6">
           <Reveal className="md:col-span-3">
-            <div className="glass rounded-[2rem] p-8 md:p-10">
+            <div className="liquid-glass rounded-[2rem] p-8 md:p-10">
               <form className="grid grid-cols-2 gap-5">
                 <Field label="Full name" placeholder="Ada Lovelace" />
                 <Field label="Work email" placeholder="you@company.com" type="email" />
@@ -35,7 +35,7 @@ function ContactPage() {
                 <Field label="Budget" placeholder="₹2L – ₹20L" />
                 <div className="col-span-2">
                   <label className="text-xs uppercase tracking-[0.2em] text-white/40">What are you building?</label>
-                  <textarea rows={5} placeholder="A few sentences about the project…" className="mt-2 w-full rounded-2xl bg-white/[0.04] border border-white/10 px-4 py-3 text-sm outline-none placeholder:text-white/30 focus:border-white/30 resize-none" />
+                  <textarea rows={5} placeholder="A few sentences about the project…" className="mt-2 w-full rounded-2xl liquid-glass px-4 py-3 text-sm outline-none placeholder:text-white/30 focus:border-white/30 resize-none" />
                 </div>
                 <div className="col-span-2 flex items-center justify-between mt-2">
                   <div className="text-xs text-white/40">We reply within one business day.</div>
@@ -49,7 +49,7 @@ function ContactPage() {
 
           <div className="md:col-span-2 space-y-4">
             <Reveal delay={60}>
-              <div className="glass rounded-3xl p-6 flex items-start gap-4">
+              <div className="liquid-glass rounded-3xl p-6 flex items-start gap-4">
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15">
                   <Mail className="h-4 w-4" />
                 </div>
@@ -60,7 +60,7 @@ function ContactPage() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <div className="glass rounded-3xl p-6 flex items-start gap-4">
+              <div className="liquid-glass rounded-3xl p-6 flex items-start gap-4">
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15">
                   <Phone className="h-4 w-4" />
                 </div>
@@ -73,7 +73,7 @@ function ContactPage() {
               </div>
             </Reveal>
             <Reveal delay={140}>
-              <Link to="/book-a-call" className="block glass rounded-3xl p-6 flex items-start gap-4 hover:border-white/20 transition group">
+              <Link to="/book-a-call" className="block liquid-glass rounded-3xl p-6 flex items-start gap-4 transition group">
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15 group-hover:bg-white group-hover:text-black transition">
                   <Calendar className="h-4 w-4" />
                 </div>
@@ -85,7 +85,7 @@ function ContactPage() {
               </Link>
             </Reveal>
             <Reveal delay={180}>
-              <div className="glass rounded-3xl p-6 flex items-start gap-4">
+              <div className="liquid-glass rounded-3xl p-6 flex items-start gap-4">
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/15">
                   <MapPin className="h-4 w-4" />
                 </div>
@@ -109,7 +109,7 @@ function Field({ label, placeholder, type = "text" }: { label: string; placehold
       <input
         type={type}
         placeholder={placeholder}
-        className="mt-2 w-full rounded-2xl bg-white/[0.04] border border-white/10 px-4 py-3 text-sm outline-none placeholder:text-white/30 focus:border-white/30"
+        className="mt-2 w-full rounded-2xl liquid-glass px-4 py-3 text-sm outline-none placeholder:text-white/30 focus:border-white/30"
       />
     </div>
   );

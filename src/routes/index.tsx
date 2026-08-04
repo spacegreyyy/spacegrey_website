@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
 import { SpaceBackground } from "@/components/SpaceBackground";
 import orbit from "@/assets/spacegrey-orbit.png";
+import heroBg from "@/assets/hero-bg.mp4";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -94,6 +95,17 @@ const FAQS = [
 function Home() {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-clip">
+      {/* Video background — fixed so it covers the entire page */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="fixed inset-0 w-full h-full object-cover z-0"
+        src={heroBg}
+      />
+      {/* Dark overlay for legibility */}
+      <div className="fixed inset-0 z-[1] bg-black/30" />
       <SpaceBackground withOrbits />
       <TopNav />
       <main className="relative z-10">
@@ -123,18 +135,9 @@ import { Footer as FooterEl } from "@/components/Footer";
 function Hero() {
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center px-6 pt-24">
-      {/* Orbit logo backdrop */}
-      <div className="pointer-events-none absolute inset-0 grid place-items-center">
-        <img
-          src={orbit}
-          alt=""
-          className="w-[85vw] max-w-[900px] invert opacity-[0.06] animate-float-slow"
-        />
-      </div>
-
-      <div className="relative max-w-6xl mx-auto text-center">
+      <div className="relative z-[3] max-w-6xl mx-auto text-center">
         <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60">
+          <div className="liquid-glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/70">
             <Sparkles className="h-3 w-3" />
             AI-first Digital Engineering
           </div>
@@ -161,14 +164,14 @@ function Hero() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/book-a-call"
-              className="group inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3.5 text-sm font-medium hover:scale-[1.02] transition"
+              className="group liquid-glass-strong inline-flex items-center gap-2 rounded-full bg-white/90 text-black px-6 py-3.5 text-sm font-medium hover:scale-[1.02] transition"
             >
               Start Your Project
               <ArrowUpRight className="h-4 w-4 group-hover:rotate-45 transition-transform" />
             </Link>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3.5 text-sm text-white hover:bg-white/[0.06] transition"
+              className="liquid-glass inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm text-white hover:bg-white/[0.06] transition"
             >
               Explore Services <ArrowRight className="h-4 w-4" />
             </Link>
@@ -197,10 +200,10 @@ function Stats() {
   ];
   return (
     <section className="px-6 py-24">
-      <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] rounded-3xl overflow-hidden border border-white/10">
+      <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-px liquid-glass rounded-3xl overflow-hidden">
         {stats.map((s, i) => (
           <Reveal key={i} delay={i * 80}>
-            <div className="bg-black/60 backdrop-blur p-10 md:p-14 text-center h-full">
+            <div className="p-10 md:p-14 text-center h-full">
               <div className="text-5xl md:text-7xl font-semibold tracking-[-0.04em] text-gradient">
                 <Counter to={s.n} suffix={s.s} />
               </div>
@@ -219,7 +222,7 @@ function WhoWeAre() {
     <section className="px-6 py-32">
       <div className="mx-auto max-w-7xl grid md:grid-cols-2 gap-16 items-center">
         <Reveal>
-          <div className="relative aspect-square rounded-[2rem] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent">
+          <div className="relative aspect-square liquid-glass rounded-[2rem] overflow-hidden">
             <div className="absolute inset-0 grid place-items-center">
               <img src={orbit} alt="" className="w-3/4 invert opacity-90 animate-orbit-slow" />
             </div>
@@ -283,12 +286,12 @@ function Services() {
             <Reveal key={s.title} delay={i * 40}>
               <Link
                 to={`/services/${s.slug}` as any}
-                className="group relative block h-full rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500 hover:-translate-y-1"
+                className="group relative block h-full liquid-glass rounded-3xl p-8 hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-1"
               >
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_60%)]" />
                 <div className="relative">
                   <div className="flex items-center justify-between">
-                    <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white/5 border border-white/10">
+                    <div className="grid h-11 w-11 place-items-center rounded-2xl liquid-glass">
                       <s.icon className="h-5 w-5" />
                     </div>
                     <ArrowUpRight className="h-4 w-4 text-white/30 group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1 transition" />
@@ -316,7 +319,7 @@ function Solutions() {
             <Reveal key={s.title} delay={i * 60}>
               <Link
                 to={`/solutions/${s.slug}` as any}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-10 hover:border-white/25 transition block"
+                className="group relative overflow-hidden liquid-glass rounded-3xl p-10 hover:bg-white/[0.04] transition block"
               >
                 <div className="flex items-start justify-between gap-6">
                   <div>
@@ -345,7 +348,7 @@ function Industries() {
         <div className="mt-16 flex flex-wrap gap-4 justify-center">
           {INDUSTRIES.map((ind, idx) => (
             <Reveal key={ind} delay={idx * 30}>
-              <span className="rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm text-white/70 hover:text-white hover:bg-white/[0.08] hover:border-white/25 transition cursor-default">
+              <span className="liquid-glass rounded-full px-6 py-3 text-sm text-white/70 hover:text-white hover:bg-white/[0.04] transition cursor-default">
                 {ind}
               </span>
             </Reveal>
@@ -362,10 +365,10 @@ function WhyUs() {
     <section className="px-6 py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHead eyebrow="Why SpaceGrey" title="A different bar for software." sub="Eight reasons teams choose us over traditional agencies." />
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06] rounded-3xl overflow-hidden border border-white/10">
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-px liquid-glass rounded-3xl overflow-hidden">
           {REASONS.map((r, i) => (
             <Reveal key={r.t} delay={i * 60}>
-              <div className="bg-black/70 p-8 h-full hover:bg-white/[0.03] transition">
+              <div className="p-8 h-full hover:bg-white/[0.04] transition">
                 <div className="flex items-center gap-2 text-xs text-white/40">
                   <Zap className="h-3.5 w-3.5" /> 0{i + 1}
                 </div>
@@ -392,9 +395,8 @@ function Process() {
             {PROCESS.map((step, i) => (
               <Reveal key={step} delay={i * 80}>
                 <div className="text-center">
-                  <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-white/15 bg-black relative">
+                  <div className="mx-auto grid h-16 w-16 place-items-center rounded-full liquid-glass relative">
                     <span className="text-lg font-semibold text-gradient">{String(i + 1).padStart(2, "0")}</span>
-                    <div className="absolute inset-0 rounded-full bg-white/5 blur-xl opacity-60" />
                   </div>
                   <div className="mt-4 text-sm text-white/80">{step}</div>
                 </div>
@@ -418,7 +420,7 @@ function Portfolio() {
             <Reveal key={c.slug} delay={i * 80}>
               <Link
                 to={`/portfolio/${c.slug}` as any}
-                className="group flex flex-col rounded-3xl border border-white/10 bg-white/[0.02] p-8 hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 hover:-translate-y-1"
+                className="group flex flex-col liquid-glass rounded-3xl p-8 hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="text-[11px] uppercase tracking-[0.25em] text-white/40 mb-4">{c.tag}</div>
                 <div className="text-xs text-white/35 mb-1">{c.client}</div>
@@ -452,7 +454,7 @@ function Testimonials() {
       <div className="mt-16 relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
         <div className="flex gap-6 animate-marquee w-max">
           {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-            <div key={i} className="w-[420px] shrink-0 glass rounded-3xl p-8">
+            <div key={i} className="w-[420px] shrink-0 liquid-glass rounded-3xl p-8">
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-white text-white" />)}
               </div>
@@ -481,7 +483,7 @@ function FAQ() {
         <div className="mt-16 space-y-3">
           {FAQS.map(([q, a], i) => (
             <Reveal key={q} delay={i * 60}>
-              <details className="group rounded-3xl border border-white/10 bg-white/[0.02] p-6 open:bg-white/[0.04] transition">
+              <details className="group liquid-glass rounded-3xl p-6 open:bg-white/[0.04] transition">
                 <summary className="flex items-center justify-between cursor-pointer list-none">
                   <span className="text-base md:text-lg text-white/90 font-medium">{q}</span>
                   <span className="grid h-8 w-8 place-items-center rounded-full border border-white/15 text-white/70 group-open:rotate-45 transition">+</span>
@@ -512,7 +514,7 @@ function SectionHead({
   return (
     <div className={`${a} max-w-3xl`}>
       <Reveal>
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60">
+        <div className="inline-flex items-center gap-2 rounded-full liquid-glass px-3 py-1 text-[11px] tracking-[0.2em] uppercase text-white/60">
           {eyebrow}
         </div>
       </Reveal>

@@ -80,7 +80,7 @@ function SolutionsPage() {
                         <Reveal key={s.slug} delay={i * 50}>
                             <Link
                                 to={`/solutions/${s.slug}` as any}
-                                className="group relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 hover:bg-white/[0.05] hover:border-white/25 transition-all duration-300 block hover:-translate-y-1 h-full"
+                                className="group relative rounded-3xl liquid-glass p-8 hover:bg-white/[0.04] transition-all duration-300 block hover:-translate-y-1 h-full"
                             >
                                 <div className="flex items-start justify-between gap-4">
                                     <div className="flex-1">
