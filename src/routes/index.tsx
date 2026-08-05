@@ -49,8 +49,6 @@ const SOLUTIONS = [
   { slug: "analytics-solutions", title: "Analytics", desc: "Real-time dashboards and BI powered by warehouses and streaming data." },
 ];
 
-const INDUSTRIES = ["Healthcare", "Finance", "Retail", "Manufacturing", "Education", "Government", "Legal", "Real Estate", "Logistics", "Media", "Insurance", "E-Commerce"];
-
 const REASONS = [
   { t: "AI-first", d: "Every system we ship is designed around intelligence, not bolted on." },
   { t: "Enterprise Quality", d: "SOC-grade engineering, code review and observability by default." },
@@ -114,7 +112,6 @@ function Home() {
         <WhoWeAre />
         <Services />
         <Solutions />
-        <Industries />
         <WhyUs />
         <Process />
         <Portfolio />
@@ -331,26 +328,6 @@ function Solutions() {
                   </div>
                 </div>
               </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ----------------- INDUSTRIES ----------------- */
-function Industries() {
-  return (
-    <section className="px-6 py-32">
-      <div className="mx-auto max-w-7xl">
-        <SectionHead eyebrow="Industries" title="Domain-fluent, end-to-end." sub="Deep expertise across regulated and technical sectors." />
-        <div className="mt-16 flex flex-wrap gap-4 justify-center">
-          {INDUSTRIES.map((ind, idx) => (
-            <Reveal key={ind} delay={idx * 30}>
-              <span className="liquid-glass rounded-full px-6 py-3 text-sm text-white/70 hover:text-white hover:bg-white/[0.04] transition cursor-default">
-                {ind}
-              </span>
             </Reveal>
           ))}
         </div>
