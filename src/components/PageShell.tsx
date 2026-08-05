@@ -11,7 +11,7 @@ import heroBgMobile from "@/assets/hero-bg-mobile.png";
 export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-clip">
-      {/* Video background — all devices */}
+      {/* Video background — desktop only */}
       <video
         autoPlay
         loop
@@ -20,10 +20,25 @@ export function PageShell({ children }: { children: ReactNode }) {
         className="hidden md:block fixed inset-0 w-full h-full object-cover z-0"
         src={heroBg}
       />
-      {/* Mobile static image fallback */}
-      <div
-        className="md:hidden fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBgMobile})` }}
+      {/* Mobile background — GPU-composited img to prevent iOS scroll jitter */}
+      <img
+        src={heroBgMobile}
+        alt=""
+        aria-hidden="true"
+        className="md:hidden"
+        style={{
+          position: "fixed",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 0,
+          transform: "translateZ(0)",
+          WebkitBackfaceVisibility: "hidden",
+          backfaceVisibility: "hidden",
+          willChange: "transform",
+          pointerEvents: "none",
+        }}
       />
       {/* Dark overlay for legibility */}
       <div className="fixed inset-0 z-[1] bg-black/30" />
