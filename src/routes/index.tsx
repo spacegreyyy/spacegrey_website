@@ -94,19 +94,14 @@ const FAQS = [
 function Home() {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-clip">
-      {/* Video background — hidden on mobile, shown on md+ */}
+      {/* Video background — all devices */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="hidden md:block fixed inset-0 w-full h-full object-cover z-0"
+        className="fixed inset-0 w-full h-full object-cover z-0"
         src={heroBg}
-      />
-      {/* Mobile static image fallback */}
-      <div
-        className="md:hidden fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBgMobile})` }}
       />
       {/* Dark overlay for legibility */}
       <div className="fixed inset-0 z-[1] bg-black/30" />

@@ -37,19 +37,14 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
       }}
       aria-hidden="true"
     >
-      {/* Video background — desktop only */}
+      {/* Video background — all devices */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="hidden md:block absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
         src={loadingBg}
-      />
-      {/* Mobile static image fallback */}
-      <div
-        className="md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${loadingMobile})` }}
       />
 
       {/* Dark overlay */}
