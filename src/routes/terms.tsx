@@ -93,9 +93,6 @@ function TermsPage() {
               Terms of Service
             </h1>
             <p className="text-white/40 text-sm">Last updated: August 2025</p>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-2xl liquid-glass px-4 py-2 text-xs text-amber-400/80">
-              ⚠️ This is a structural template. Please have it reviewed by a lawyer before publishing.
-            </div>
           </Reveal>
         </div>
       </section>

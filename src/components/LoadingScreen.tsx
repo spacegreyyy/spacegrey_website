@@ -43,8 +43,13 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover"
         src={loadingBg}
+      />
+      {/* Mobile static image fallback */}
+      <div
+        className="md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${loadingMobile})` }}
       />
 
       {/* Dark overlay */}

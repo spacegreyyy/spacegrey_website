@@ -100,8 +100,13 @@ function Home() {
         loop
         muted
         playsInline
-        className="fixed inset-0 w-full h-full object-cover z-0"
+        className="hidden md:block fixed inset-0 w-full h-full object-cover z-0"
         src={heroBg}
+      />
+      {/* Mobile static image fallback */}
+      <div
+        className="md:hidden fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBgMobile})` }}
       />
       {/* Dark overlay for legibility */}
       <div className="fixed inset-0 z-[1] bg-black/30" />
