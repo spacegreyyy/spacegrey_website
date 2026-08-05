@@ -1,16 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowUpRight, Linkedin, Twitter } from "lucide-react";
+import { useState } from "react";
 import orbit from "@/assets/spacegrey-orbit.png";
-import textLogo from "@/assets/spacegrey-text.png";
 
 const SOCIALS = [
   { Icon: Twitter, href: "https://x.com/Space_Grey225", label: "X / Twitter" },
-  {
-    Icon: Linkedin,
-    href: "https://www.linkedin.com/company/spacegreyyy",
-    label: "LinkedIn",
-  },
-  { Icon: Github, href: "https://github.com/spacegrey", label: "GitHub" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/company/spacegreyyy", label: "LinkedIn" },
 ];
 
 const cols = [
@@ -18,7 +13,6 @@ const cols = [
     title: "Company",
     links: [
       ["About", "/about"],
-      // ["Pricing", "/pricing"], // temporarily hidden
       ["Contact", "/contact"],
       ["Book a Call", "/book-a-call"],
     ],
@@ -53,6 +47,17 @@ const cols = [
 ] as const;
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  function handleSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+    window.location.href = `mailto:spacegreyyy522@gmail.com?subject=Newsletter%20Subscription&body=Please%20subscribe%20this%20email%20address%3A%20${encodeURIComponent(email)}`;
+    setSubscribed(true);
+    setEmail("");
+  }
+
   return (
     <footer className="relative z-10 border-t border-white/[0.06] mt-32">
       <div className="mx-auto max-w-7xl px-6 py-20">
@@ -66,27 +71,37 @@ export function Footer() {
               Monthly dispatch on AI, engineering and product craft. No noise.
             </p>
           </div>
-          <form className="flex w-full md:w-auto items-center gap-2 glass-strong rounded-full p-1.5 pl-5 min-w-[320px]">
-            <input
-              type="email"
-              placeholder="you@company.com"
-              className="flex-1 bg-transparent outline-none text-sm placeholder:text-white/30"
-            />
-            <button className="rounded-full bg-white text-black px-4 py-2 text-xs font-medium hover:scale-[1.02] transition">
-              Subscribe
-            </button>
-          </form>
+          {subscribed ? (
+            <div className="text-emerald-400 text-sm font-medium w-full md:min-w-[320px]">
+              ✓ Subscription request sent — we'll add you to the list.
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubscribe}
+              className="flex w-full md:w-auto items-center gap-2 liquid-glass-strong rounded-full p-1.5 pl-5 md:min-w-[320px]"
+            >
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@company.com"
+                className="flex-1 bg-transparent outline-none text-sm placeholder:text-white/30"
+              />
+              <button
+                type="submit"
+                className="rounded-full bg-white text-black px-4 py-2 text-xs font-medium hover:scale-[1.02] transition"
+              >
+                Subscribe
+              </button>
+            </form>
+          )}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           <div className="col-span-2">
-            <div className="flex items-center gap-3">
-              <img src={orbit} alt="" className="h-12 w-12 invert opacity-90" />
-              <img
-                src={textLogo}
-                alt="SpaceGrey"
-                className="h-6 w-auto invert opacity-85"
-              />
+            <div className="flex items-center">
+              <img src={orbit} alt="SpaceGrey" className="h-20 w-20 invert opacity-90" />
             </div>
             <p className="mt-5 text-sm text-white/50 max-w-xs">
               We design and engineer AI systems, enterprise software and
@@ -94,13 +109,11 @@ export function Footer() {
             </p>
             <div className="mt-4 text-sm text-white/40 space-y-1">
               <div>Delhi, India</div>
-              <a
-                href="mailto:spacegreyyy522@gmail.com"
-                className="hover:text-white/70 transition"
-              >
+              <a href="mailto:spacegreyyy522@gmail.com" className="hover:text-white/70 transition">
                 spacegreyyy522@gmail.com
               </a>
             </div>
+            {/* Socials — combined in one row */}
             <div className="mt-6 flex items-center gap-2">
               {SOCIALS.map(({ Icon, href, label }) => (
                 <a
@@ -109,7 +122,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white/60 hover:text-white hover:bg-white/5 transition"
+                  className="grid h-9 w-9 place-items-center rounded-full liquid-glass text-white/60 hover:text-white transition"
                 >
                   <Icon className="h-3.5 w-3.5" />
                 </a>
@@ -140,22 +153,12 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-white/40">
-          <div>
-            © {new Date().getFullYear()} SpaceGrey. All rights reserved.
-          </div>
+          <div>© {new Date().getFullYear()} SpaceGrey. All rights reserved.</div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-white">
-              Terms
-            </a>
-            <a href="#" className="hover:text-white">
-              Security
-            </a>
-            <a href="#" className="hover:text-white">
-              Status
-            </a>
+            <Link to="/privacy" className="hover:text-white transition">Privacy</Link>
+            <Link to="/terms" className="hover:text-white transition">Terms</Link>
+            <Link to="/security" className="hover:text-white transition">Security</Link>
+            <Link to="/status" className="hover:text-white transition">Status</Link>
           </div>
         </div>
 

@@ -16,8 +16,12 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SecurityRouteImport } from './routes/security'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as StatusRouteImport } from './routes/status'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioBharatFintechRouteImport } from './routes/portfolio.bharat-fintech'
 import { Route as PortfolioFinnFintechRouteImport } from './routes/portfolio.finn-fintech'
@@ -82,6 +86,16 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -90,6 +104,16 @@ const ServicesRoute = ServicesRouteImport.update({
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
@@ -252,8 +276,12 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/security': typeof SecurityRoute
   '/services': typeof ServicesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
+  '/status': typeof StatusRoute
+  '/terms': typeof TermsRoute
   '/portfolio/bharat-fintech': typeof PortfolioBharatFintechRoute
   '/portfolio/finn-fintech': typeof PortfolioFinnFintechRoute
   '/portfolio/rural-stay-india': typeof PortfolioRuralStayIndiaRoute
@@ -290,6 +318,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/security': typeof SecurityRoute
+  '/status': typeof StatusRoute
+  '/terms': typeof TermsRoute
   '/portfolio/bharat-fintech': typeof PortfolioBharatFintechRoute
   '/portfolio/finn-fintech': typeof PortfolioFinnFintechRoute
   '/portfolio/rural-stay-india': typeof PortfolioRuralStayIndiaRoute
@@ -328,8 +360,12 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRoute
   '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/security': typeof SecurityRoute
   '/services': typeof ServicesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
+  '/status': typeof StatusRoute
+  '/terms': typeof TermsRoute
   '/portfolio/bharat-fintech': typeof PortfolioBharatFintechRoute
   '/portfolio/finn-fintech': typeof PortfolioFinnFintechRoute
   '/portfolio/rural-stay-india': typeof PortfolioRuralStayIndiaRoute
@@ -369,8 +405,12 @@ export interface FileRouteTypes {
     | '/industries'
     | '/portfolio'
     | '/pricing'
+    | '/privacy'
+    | '/security'
     | '/services'
     | '/solutions'
+    | '/status'
+    | '/terms'
     | '/portfolio/bharat-fintech'
     | '/portfolio/finn-fintech'
     | '/portfolio/rural-stay-india'
@@ -407,6 +447,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/pricing'
+    | '/privacy'
+    | '/security'
+    | '/status'
+    | '/terms'
     | '/portfolio/bharat-fintech'
     | '/portfolio/finn-fintech'
     | '/portfolio/rural-stay-india'
@@ -444,8 +488,12 @@ export interface FileRouteTypes {
     | '/industries'
     | '/portfolio'
     | '/pricing'
+    | '/privacy'
+    | '/security'
     | '/services'
     | '/solutions'
+    | '/status'
+    | '/terms'
     | '/portfolio/bharat-fintech'
     | '/portfolio/finn-fintech'
     | '/portfolio/rural-stay-india'
@@ -484,8 +532,12 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRoute
   PortfolioRoute: typeof PortfolioRouteWithChildren
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SecurityRoute: typeof SecurityRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SolutionsRoute: typeof SolutionsRouteWithChildren
+  StatusRoute: typeof StatusRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -539,6 +591,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -551,6 +617,20 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/': {
@@ -846,8 +926,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRoute,
   PortfolioRoute: PortfolioRouteWithChildren,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  SecurityRoute: SecurityRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SolutionsRoute: SolutionsRouteWithChildren,
+  StatusRoute: StatusRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
