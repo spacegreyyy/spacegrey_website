@@ -6,18 +6,24 @@ import { Reveal } from "./Reveal";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.mp4";
+import heroBgMobile from "@/assets/hero-bg-mobile.png";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-clip">
-      {/* Video background — fixed so it persists across all page sections */}
+      {/* Video background — hidden on mobile, shown on md+ */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="fixed inset-0 w-full h-full object-cover z-0"
+        className="hidden md:block fixed inset-0 w-full h-full object-cover z-0"
         src={heroBg}
+      />
+      {/* Mobile static image fallback */}
+      <div
+        className="md:hidden fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBgMobile})` }}
       />
       {/* Dark overlay for legibility */}
       <div className="fixed inset-0 z-[1] bg-black/30" />

@@ -6,6 +6,7 @@ import { Counter } from "@/components/Counter";
 import { SpaceBackground } from "@/components/SpaceBackground";
 import orbit from "@/assets/spacegrey-orbit.png";
 import heroBg from "@/assets/hero-bg.mp4";
+import heroBgMobile from "@/assets/hero-bg-mobile.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,14 +94,19 @@ const FAQS = [
 function Home() {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-clip">
-      {/* Video background — fixed so it covers the entire page */}
+      {/* Video background — hidden on mobile, shown on md+ */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="fixed inset-0 w-full h-full object-cover z-0"
+        className="hidden md:block fixed inset-0 w-full h-full object-cover z-0"
         src={heroBg}
+      />
+      {/* Mobile static image fallback */}
+      <div
+        className="md:hidden fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBgMobile})` }}
       />
       {/* Dark overlay for legibility */}
       <div className="fixed inset-0 z-[1] bg-black/30" />
@@ -200,11 +206,11 @@ function Stats() {
       <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-px liquid-glass rounded-3xl overflow-hidden">
         {stats.map((s, i) => (
           <Reveal key={i} delay={i * 80}>
-            <div className="p-10 md:p-14 text-center h-full">
-              <div className="text-5xl md:text-7xl font-semibold tracking-[-0.04em] text-gradient">
+            <div className="p-6 md:p-10 lg:p-14 text-center h-full">
+              <div className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-[-0.04em] text-gradient">
                 <Counter to={s.n} suffix={s.s} />
               </div>
-              <div className="mt-3 text-xs uppercase tracking-[0.2em] text-white/40">{s.label}</div>
+              <div className="mt-2 text-[10px] md:text-xs uppercase tracking-[0.15em] md:tracking-[0.2em] text-white/40 leading-snug">{s.label}</div>
             </div>
           </Reveal>
         ))}

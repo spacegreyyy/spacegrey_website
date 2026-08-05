@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import orbitLogo from "@/assets/spacegrey-orbit.png";
 import loadingBg from "@/assets/loading.mp4";
+import loadingMobile from "@/assets/loading-mobile.png";
 
 export function LoadingScreen({ onDone }: { onDone: () => void }) {
   const [progress, setProgress] = useState(0);
@@ -36,14 +37,19 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
       }}
       aria-hidden="true"
     >
-      {/* Video background */}
+      {/* Video background — desktop only */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover"
         src={loadingBg}
+      />
+      {/* Mobile static image fallback */}
+      <div
+        className="md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${loadingMobile})` }}
       />
 
       {/* Dark overlay */}
