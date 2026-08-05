@@ -62,12 +62,12 @@ export function Footer() {
     <footer className="relative z-10 border-t border-white/[0.06] mt-32">
       <div className="mx-auto max-w-7xl px-6 py-20">
         {/* Newsletter */}
-        <div className="liquid-glass rounded-3xl p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20">
+        <div className="liquid-glass rounded-3xl p-6 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-5 md:gap-8 mb-20">
           <div>
-            <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-gradient max-w-lg">
+            <h3 className="text-2xl md:text-4xl font-semibold tracking-tight text-gradient max-w-lg">
               Signals from deep space.
             </h3>
-            <p className="mt-3 text-sm text-white/50 max-w-md">
+            <p className="mt-2 text-xs md:text-sm text-white/50 max-w-md">
               Monthly dispatch on AI, engineering and product craft. No noise.
             </p>
           </div>
@@ -78,7 +78,7 @@ export function Footer() {
           ) : (
             <form
               onSubmit={handleSubscribe}
-              className="flex w-full md:w-auto items-center gap-2 liquid-glass-strong rounded-full p-1.5 pl-5 md:min-w-[320px]"
+              className="flex w-full md:w-auto items-center gap-2 liquid-glass-strong rounded-full p-1 pl-4 md:min-w-[320px]"
             >
               <input
                 type="email"
@@ -86,7 +86,7 @@ export function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@company.com"
-                className="flex-1 bg-transparent outline-none text-sm placeholder:text-white/30"
+                className="flex-1 bg-transparent outline-none text-sm placeholder:text-white/30 min-w-0"
               />
               <button
                 type="submit"
