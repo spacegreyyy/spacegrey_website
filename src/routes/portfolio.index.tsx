@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/portfolio/")({
   head: () => ({
     meta: [
-      { title: "Portfolio — SpaceGrey" },
+      { title: "Our Work — SpaceGrey" },
       { name: "description", content: "Case studies from SpaceGrey — websites, analytics, automation and more." },
     ],
   }),
@@ -62,7 +62,7 @@ function PortfolioPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Portfolio"
+        eyebrow="Our Work"
         title="Work that ships."
         subtitle="Selected projects across web, analytics, automation and digital transformation."
       />

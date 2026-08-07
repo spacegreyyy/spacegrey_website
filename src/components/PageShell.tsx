@@ -107,7 +107,7 @@ export function CTAStrip() {
                 to="/portfolio"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm text-white hover:bg-white/[0.06] transition"
               >
-                View our work
+              View our work
               </Link>
             </div>
           </div>

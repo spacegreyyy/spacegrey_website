@@ -1,3 +1,9 @@
+# Large media / project source folders — not for git
+Videos/
+Projects-Spacegrey/
+Images/
+compress_videos.sh
+
 # Logs
 logs
 *.log

@@ -38,7 +38,8 @@ const cols = [
   {
     title: "Resources",
     links: [
-      ["Portfolio", "/portfolio"],
+      ["Our Work", "/portfolio"],
+      ["Projects", "/projects"],
       ["Industries", "/industries"],
       ["Book a Call", "/book-a-call"],
       ["Start a Project", "/contact"],

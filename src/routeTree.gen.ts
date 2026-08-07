@@ -17,6 +17,7 @@ import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SolutionsRouteImport } from './routes/solutions'
@@ -29,6 +30,8 @@ import { Route as PortfolioRuralStayIndiaRouteImport } from './routes/portfolio.
 import { Route as PortfolioSageMediaRouteImport } from './routes/portfolio.sage-media'
 import { Route as PortfolioSaieshaEVehiclesRouteImport } from './routes/portfolio.saiesha-e-vehicles'
 import { Route as PortfolioVaibhavOxygensRouteImport } from './routes/portfolio.vaibhav-oxygens'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesArtificialIntelligenceRouteImport } from './routes/services.artificial-intelligence'
 import { Route as ServicesAutomationRouteImport } from './routes/services.automation'
@@ -91,6 +94,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SecurityRoute = SecurityRouteImport.update({
   id: '/security',
   path: '/security',
@@ -151,6 +159,16 @@ const PortfolioVaibhavOxygensRoute = PortfolioVaibhavOxygensRouteImport.update({
   id: '/vaibhav-oxygens',
   path: '/vaibhav-oxygens',
   getParentRoute: () => PortfolioRoute,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
@@ -277,6 +295,7 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/security': typeof SecurityRoute
   '/services': typeof ServicesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
@@ -288,6 +307,7 @@ export interface FileRoutesByFullPath {
   '/portfolio/sage-media': typeof PortfolioSageMediaRoute
   '/portfolio/saiesha-e-vehicles': typeof PortfolioSaieshaEVehiclesRoute
   '/portfolio/vaibhav-oxygens': typeof PortfolioVaibhavOxygensRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/services/artificial-intelligence': typeof ServicesArtificialIntelligenceRoute
   '/services/automation': typeof ServicesAutomationRoute
   '/services/cloud-devops': typeof ServicesCloudDevopsRoute
@@ -308,6 +328,7 @@ export interface FileRoutesByFullPath {
   '/solutions/saas-solutions': typeof SolutionsSaasSolutionsRoute
   '/solutions/startup-solutions': typeof SolutionsStartupSolutionsRoute
   '/portfolio/': typeof PortfolioIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
 }
@@ -328,6 +349,7 @@ export interface FileRoutesByTo {
   '/portfolio/sage-media': typeof PortfolioSageMediaRoute
   '/portfolio/saiesha-e-vehicles': typeof PortfolioSaieshaEVehiclesRoute
   '/portfolio/vaibhav-oxygens': typeof PortfolioVaibhavOxygensRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/services/artificial-intelligence': typeof ServicesArtificialIntelligenceRoute
   '/services/automation': typeof ServicesAutomationRoute
   '/services/cloud-devops': typeof ServicesCloudDevopsRoute
@@ -348,6 +370,7 @@ export interface FileRoutesByTo {
   '/solutions/saas-solutions': typeof SolutionsSaasSolutionsRoute
   '/solutions/startup-solutions': typeof SolutionsStartupSolutionsRoute
   '/portfolio': typeof PortfolioIndexRoute
+  '/projects': typeof ProjectsIndexRoute
   '/services': typeof ServicesIndexRoute
   '/solutions': typeof SolutionsIndexRoute
 }
@@ -361,6 +384,7 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/security': typeof SecurityRoute
   '/services': typeof ServicesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
@@ -372,6 +396,7 @@ export interface FileRoutesById {
   '/portfolio/sage-media': typeof PortfolioSageMediaRoute
   '/portfolio/saiesha-e-vehicles': typeof PortfolioSaieshaEVehiclesRoute
   '/portfolio/vaibhav-oxygens': typeof PortfolioVaibhavOxygensRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/services/artificial-intelligence': typeof ServicesArtificialIntelligenceRoute
   '/services/automation': typeof ServicesAutomationRoute
   '/services/cloud-devops': typeof ServicesCloudDevopsRoute
@@ -392,6 +417,7 @@ export interface FileRoutesById {
   '/solutions/saas-solutions': typeof SolutionsSaasSolutionsRoute
   '/solutions/startup-solutions': typeof SolutionsStartupSolutionsRoute
   '/portfolio/': typeof PortfolioIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
 }
@@ -406,6 +432,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing'
     | '/privacy'
+    | '/projects'
     | '/security'
     | '/services'
     | '/solutions'
@@ -417,6 +444,7 @@ export interface FileRouteTypes {
     | '/portfolio/sage-media'
     | '/portfolio/saiesha-e-vehicles'
     | '/portfolio/vaibhav-oxygens'
+    | '/projects/$slug'
     | '/services/artificial-intelligence'
     | '/services/automation'
     | '/services/cloud-devops'
@@ -437,6 +465,7 @@ export interface FileRouteTypes {
     | '/solutions/saas-solutions'
     | '/solutions/startup-solutions'
     | '/portfolio/'
+    | '/projects/'
     | '/services/'
     | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
@@ -457,6 +486,7 @@ export interface FileRouteTypes {
     | '/portfolio/sage-media'
     | '/portfolio/saiesha-e-vehicles'
     | '/portfolio/vaibhav-oxygens'
+    | '/projects/$slug'
     | '/services/artificial-intelligence'
     | '/services/automation'
     | '/services/cloud-devops'
@@ -477,6 +507,7 @@ export interface FileRouteTypes {
     | '/solutions/saas-solutions'
     | '/solutions/startup-solutions'
     | '/portfolio'
+    | '/projects'
     | '/services'
     | '/solutions'
   id:
@@ -489,6 +520,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing'
     | '/privacy'
+    | '/projects'
     | '/security'
     | '/services'
     | '/solutions'
@@ -500,6 +532,7 @@ export interface FileRouteTypes {
     | '/portfolio/sage-media'
     | '/portfolio/saiesha-e-vehicles'
     | '/portfolio/vaibhav-oxygens'
+    | '/projects/$slug'
     | '/services/artificial-intelligence'
     | '/services/automation'
     | '/services/cloud-devops'
@@ -520,6 +553,7 @@ export interface FileRouteTypes {
     | '/solutions/saas-solutions'
     | '/solutions/startup-solutions'
     | '/portfolio/'
+    | '/projects/'
     | '/services/'
     | '/solutions/'
   fileRoutesById: FileRoutesById
@@ -533,6 +567,7 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRouteWithChildren
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
   SecurityRoute: typeof SecurityRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SolutionsRoute: typeof SolutionsRouteWithChildren
@@ -596,6 +631,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/security': {
@@ -681,6 +723,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/portfolio/vaibhav-oxygens'
       preLoaderRoute: typeof PortfolioVaibhavOxygensRouteImport
       parentRoute: typeof PortfolioRoute
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof ProjectsRoute
     }
     '/services/': {
       id: '/services/'
@@ -856,6 +912,20 @@ const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
   PortfolioRouteChildren,
 )
 
+interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
 interface ServicesRouteChildren {
   ServicesArtificialIntelligenceRoute: typeof ServicesArtificialIntelligenceRoute
   ServicesAutomationRoute: typeof ServicesAutomationRoute
@@ -927,6 +997,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRouteWithChildren,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
   SecurityRoute: SecurityRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SolutionsRoute: SolutionsRouteWithChildren,
