@@ -10,7 +10,7 @@ import {
 import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import favicon from "@/assets/spacegrey-orbit.png";
+import favicon from "@/assets/favicon.png";
 import { reportError } from "../lib/error-reporting";
 import { LoadingScreen } from "../components/LoadingScreen";
 
@@ -139,7 +139,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "AI, software, automation and product engineering for teams building the future.",
       },
+      { property: "og:image", content: "/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:url", content: "https://spacegrey.in" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "SpaceGrey — AI-first Digital Engineering" },
+      { name: "twitter:description", content: "AI, software, automation and product engineering for teams building the future." },
+      { name: "twitter:image", content: "/og-image.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
